@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ubuntu Builds - Professional construction company in Johannesburg. Building communities together since 2010.">
+    <meta name="keywords" content="construction, building, Johannesburg, renovation, electrical, residential, commercial">
+    <meta property="og:title" content="Ubuntu Builds - Building Communities Together">
+    <meta property="og:description" content="Expert construction services in Johannesburg since 2010">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+    <meta property="og:url" content="https://www.ubuntubuilds.co.za">
+    <title>Ubuntu Builds - Building Communities Together</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Ubuntu Builds Color Scheme */
+        :root {
+            --primary: #D84315;
+            --primary-dark: #BF360C;
+            --secondary: #2C3E50;
+            --secondary-light: #34495E;
+            --accent: #FFA000;
+            --accent-dark: #F57C00;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --text-white: #FFFFFF;
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F5F5;
+            --bg-grey: #FAFAFA;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --shadow-xl: 0 12px 24px rgba(0,0,0,0.18);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { 
+            font-size: 2rem; 
+            color: var(--secondary);
+        }
+        h3 { font-size: 1.5rem; }
+        p { margin-bottom: var(--spacing-sm); }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent);
+            color: var(--text-white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--text-white);
+        }
+
+        .btn-light {
+            background-color: var(--text-white);
+            color: var(--primary);
+        }
+
+        .btn-light:hover {
+            background-color: var(--bg-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: all var(--transition-normal);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem var(--spacing-md);
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--secondary);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color var(--transition-fast);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover { color: var(--primary); }
+        .nav-menu a.active { color: var(--primary); }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary);
+            color: var(--text-white) !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: var(--radius-md);
+        }
+
+        .phone-link:hover { background-color: var(--primary-dark) !important; }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .nav-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--secondary);
+            transition: var(--transition-normal);
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity var(--transition-slow);
+        }
+
+        .slide.active { opacity: 1; }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.4));
+            z-index: -1;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10%;
+            max-width: 600px;
+            color: var(--text-white);
+        }
+
+        .slide-content h2 {
+            font-size: 3rem;
+            color: var(--text-white);
+            margin-bottom: var(--spacing-sm);
+            animation: fadeInUp 1s ease;
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .slide-content .btn { animation: fadeInUp 1s ease 0.4s both; }
+
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .services-list span {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: var(--spacing-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .slider-prev,
+        .slider-next {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-prev:hover,
+        .slider-next:hover { background-color: var(--primary); }
+
+        .slider-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--bg-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-card { padding: var(--spacing-md); }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* About Preview */
+        .about-preview { padding: var(--spacing-xl) 0; }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--bg-grey);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(216, 67, 21, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        .service-icon i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .service-card h3 { margin-bottom: var(--spacing-sm); }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .service-link:hover { gap: 1rem; }
+
+        /* Features Section */
+        .features-section { padding: var(--spacing-xl) 0; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .feature-card { text-align: center; padding: var(--spacing-md); }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 160, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--bg-light);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            display: none;
+            padding: var(--spacing-lg);
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial.active { display: block; }
+
+        .testimonial-content { text-align: center; }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.2rem;
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .client-info h4 {
+            margin-bottom: 0.25rem;
+            color: var(--secondary);
+        }
+
+        .client-info p {
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .testimonial-prev,
+        .testimonial-next {
+            background-color: var(--primary);
+            color: var(--text-white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .testimonial-prev:hover,
+        .testimonial-next:hover { background-color: var(--primary-dark); }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--text-white);
+        }
+
+        .cta-banner .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .cta-content h2 {
+            color: var(--text-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--secondary);
+            color: var(--text-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h3,
+        .footer-col h4 { color: var(--text-white); margin-bottom: var(--spacing-md); }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col ul li { margin-bottom: var(--spacing-xs); }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-col a:hover { color: var(--accent); }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition-normal);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-md);
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .developer-credit {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: var(--text-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: var(--transition-normal);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-lg);
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary);
+            color: var(--text-white);
+            border: none;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 998;
+            transition: var(--transition-normal);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in { animation: fadeInUp 0.8s ease both; }
+
+        /* Text Center Utility */
+        .text-center { text-align: center; }
+
+        /* Responsive Design */
+        @media (min-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            .slide-content h2 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 1023px) {
+            .container { padding: 0 var(--spacing-sm); }
+            .hero-slider { height: 80vh; min-height: 500px; }
+            .slide-content { left: 5%; max-width: 500px; }
+            .slide-content h2 { font-size: 2.5rem; }
+            .about-content { grid-template-columns: 1fr; gap: var(--spacing-md); }
+            .cta-banner .container { grid-template-columns: 1fr; text-align: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 767px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--bg-white);
+                flex-direction: column;
+                padding: var(--spacing-lg);
+                transition: left var(--transition-normal);
+                box-shadow: var(--shadow-lg);
+            }
+            .nav-menu.active { left: 0; }
+            .nav-toggle { display: flex; }
+            .nav-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+            .nav-toggle.active .bar:nth-child(2) { opacity: 0; }
+            .nav-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+            .hero-slider { height: 70vh; min-height: 400px; margin-top: 70px; }
+            .slide-content { left: 5%; right: 5%; max-width: 100%; text-align: center; }
+            .slide-content h2 { font-size: 2rem; }
+            .services-grid, .features-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial { padding: var(--spacing-md); }
+            .whatsapp-float {
+                bottom: var(--spacing-md); right: var(--spacing-md);
+                width: 50px; height: 50px; font-size: 1.5rem;
+            }
+            .back-to-top { bottom: calc(var(--spacing-xl) - 10px); right: var(--spacing-md); }
+        }
+
+        @media (max-width: 479px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.5rem; }
+            .slide-content h2 { font-size: 1.75rem; }
+            .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-number { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* About Page Styles */
+        .page-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-white);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .page-hero h1 {
+            color: var(--text-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content { margin-right: 55%; }
+        .timeline-item:nth-child(even) .timeline-content { margin-left: 55%; }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -10px;
+            transform: translate(100%, -50%);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -10px;
+            transform: translate(-100%, -50%);
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--bg-light);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .mv-card {
+            background: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .mv-card h3 {
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Values */
+        .values-section { padding: var(--spacing-xl) 0; }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 160, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        .value-icon i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        /* Team */
+        .team-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--bg-grey);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+
+        .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+        .team-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        .team-info h3 { margin-bottom: 0.25rem; }
+        .team-position { color: var(--primary); font-weight: 600; margin-bottom: var(--spacing-sm); }
+        .team-bio { color: var(--text-light); font-size: 0.9rem; margin-bottom: var(--spacing-sm); }
+        .team-email { color: var(--accent); font-size: 0.9rem; }
+
+        /* Contact Page */
+        .contact-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-white);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .contact-form { padding-right: var(--spacing-lg); }
+
+        .form-group { margin-bottom: var(--spacing-md); }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(216, 67, 21, 0.1);
+        }
+
+        .form-control.error { border-color: #e74c3c; }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .success-message {
+            background-color: #2ecc71;
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info-card {
+            background: var(--bg-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            height: fit-content;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .info-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: var(--spacing-xl);
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        /* Projects Page */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: var(--bg-light);
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .filter-btn:hover { background: #e0e0e0; }
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: var(--spacing-md);
+        }
+
+        .project-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-slider {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .modal-slide.active { opacity: 1; }
+
+        .modal-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info { padding: var(--spacing-lg); }
+
+        /* Services Page */
+        .services-detail {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .service-category {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .category-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .services-list-detailed {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .service-item-detailed {
+            background: var(--bg-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+
+        .service-item-detailed:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-header-detailed {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-icon-detailed {
+            width: 50px;
+            height: 50px;
+            background: rgba(216, 67, 21, 0.1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon-detailed i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: var(--spacing-sm);
+        }
+
+        .features-list li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Utility Classes */
+        .visible { opacity: 1 !important; }
+        .hidden { display: none !important; }
+        .mt-1 { margin-top: var(--spacing-xs); }
+        .mt-2 { margin-top: var(--spacing-sm); }
+        .mt-3 { margin-top: var(--spacing-md); }
+        .mt-4 { margin-top: var(--spacing-lg); }
+        .mt-5 { margin-top: var(--spacing-xl); }
+        .mb-1 { margin-bottom: var(--spacing-xs); }
+        .mb-2 { margin-bottom: var(--spacing-sm); }
+        .mb-3 { margin-bottom: var(--spacing-md); }
+        .mb-4 { margin-bottom: var(--spacing-lg); }
+        .mb-5 { margin-bottom: var(--spacing-xl); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                <h1>UBUNTU BUILDS</h1>
+                <p class="tagline">Building Communities Together</p>
+            </a>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="nav-cta">
+                    <a href="tel:+27112345678" class="phone-link">
+                        <i class="fas fa-phone"></i> +27 11 234 5678
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Container (Single Page) -->
+    <div id="home">
+        <!-- Hero Slider -->
+        <section class="hero-slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <h2>Expert Construction Services Since 2010</h2>
+                    <p>We don't just build structures. We build legacies.</p>
+                    <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+                </div>
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern construction site" class="slide-bg">
+            </div>
+            
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Residential & Commercial Excellence</h2>
+                    <p>From concept to completion, we handle everything</p>
+                    <div class="services-list">
+                        <span><i class="fas fa-check"></i> Residential Building</span>
+                        <span><i class="fas fa-check"></i> Commercial Construction</span>
+                        <span><i class="fas fa-check"></i> Renovations</span>
+                        <span><i class="fas fa-check"></i> Electrical Work</span>
+                    </div>
+                    <a href="#services" class="btn btn-secondary">View Our Services</a>
+                </div>
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Commercial building construction" class="slide-bg">
+            </div>
+            
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Quality Workmanship, On Time & On Budget</h2>
+                    <p>Ubuntu Builds delivers excellence with every project</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+                </div>
+                <div class="slide-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Construction team working" class="slide-bg">
+            </div>
+            
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="500">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="75">0</div>
+                        <div class="stat-label">Skilled Professionals</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section id="about" class="about-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Who We Are</h2>
+                    <p class="section-subtitle">Building with purpose since 2010</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Ubuntu Builds was founded on the principle of 'Ubuntu' - I am because we are. We believe that great construction isn't just about bricks and mortar; it's about building communities, creating opportunities, and transforming spaces where people live, work, and thrive.</p>
+                        <p>Since our establishment in 2010, we've grown from a small team with a big vision to become one of Johannesburg's most trusted construction companies.</p>
+                        <p>Our philosophy centers on quality craftsmanship, transparent communication, and lasting relationships with our clients and community.</p>
+                        <a href="#about-detail" class="btn btn-outline">Learn More About Us</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ubuntu Builds team" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p class="section-subtitle">Comprehensive construction solutions</p>
+                </div>
+                
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
+                
+                <div class="text-center">
+                    <a href="#services-detail" class="btn btn-primary">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Ubuntu Builds</h2>
+                    <p class="section-subtitle">What sets us apart</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Quality Workmanship</h3>
+                        <p>Certified professionals with attention to detail and industry best practices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Affordable & Reliable</h3>
+                        <p>Transparent pricing with no hidden costs. We deliver what we promise.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>On-Time Delivery</h3>
+                        <p>Proven track record of completing projects on schedule, every time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Full-Service Solutions</h3>
+                        <p>One-stop construction shop from planning to completion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Client Testimonials</h2>
+                    <p class="section-subtitle">What our clients say about us</p>
+                </div>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Ubuntu Builds transformed our office space beyond expectations. Their attention to detail and professional approach made the entire process seamless."</p>
+                            <div class="client-info">
+                                <h4>Thandiwe Nkosi</h4>
+                                <p>CEO, Nkosi Enterprises</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Our home renovation was completed on time and within budget. The team was respectful, clean, and highly skilled. Highly recommended!"</p>
+                            <div class="client-info">
+                                <h4>James Peterson</h4>
+                                <p>Homeowner, Fourways</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"The commercial building project was handled professionally from start to finish. Ubuntu Builds delivered exceptional quality and met all deadlines."</p>
+                            <div class="client-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Property Developer, Sandton</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-controls">
+                        <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Your Next Project?</h2>
+                    <p>Let's build something amazing together. Contact us for a free consultation.</p>
+                    <a href="#contact" class="btn btn-light">Request a Consultation</a>
+                </div>
+                <div class="cta-image">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Construction planning" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Detailed About Section -->
+    <div id="about-detail" class="hidden">
+        <section class="page-hero">
+            <div class="container">
+                <h1>About Ubuntu Builds</h1>
+                <nav class="breadcrumb">
+                    <a href="#home">Home</a> &gt; <span>About Us</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Company Story -->
+        <section class="company-story">
+            <div class="container">
+                <h2 class="text-center mb-4">Our Story</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2010</div>
+                            <h3>Foundation</h3>
+                            <p>Ubuntu Builds was founded by Samuel Khumalo with a small team of 5 dedicated builders, operating from a single office in Johannesburg.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2014</div>
+                            <h3>Expansion</h3>
+                            <p>Expanded services to include commercial construction and secured first major commercial project - a retail center in Sandton.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2018</div>
+                            <h3>Certification</h3>
+                            <p>Achieved CIDB 7GB and 7CE grading, ISO 9001 certification, and grew team to 50+ skilled professionals.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2023</div>
+                            <h3>Present Day</h3>
+                            <p>Now one of Johannesburg's leading construction firms with 75+ professionals and 500+ completed projects across Gauteng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="container">
+                <div class="mv-grid">
+                    <div class="mv-card">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p>To deliver exceptional construction services that build communities, create opportunities, and exceed client expectations through quality craftsmanship and the Ubuntu philosophy.</p>
+                    </div>
+                    <div class="mv-card">
+                        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                        <p>To be Johannesburg's most trusted construction partner, recognized for transforming spaces and building sustainable communities through innovative and ethical practices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="text-center mb-4">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We conduct business with honesty, transparency, and ethical practices.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>We strive for the highest quality in every project we undertake.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We embrace new technologies and methods to deliver better results.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community</h3>
+                        <p>We believe in building not just structures, but stronger communities.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Safety</h3>
+                        <p>We prioritize the safety of our team, clients, and the public.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainability</h3>
+                        <p>We are committed to environmentally responsible construction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="text-center mb-4">Meet Our Leadership Team</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Samuel Khumalo" class="team-img">
+                        <div class="team-info">
+                            <h3>Samuel Khumalo</h3>
+                            <p class="team-position">Managing Director & Founder</p>
+                            <p class="team-bio">With over 20 years in construction, Samuel founded Ubuntu Builds to bring community-focused building to Johannesburg.</p>
+                            <p class="team-email">samuel@ubuntubuilds.co.za</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lerato Ndlovu" class="team-img">
+                        <div class="team-info">
+                            <h3>Lerato Ndlovu</h3>
+                            <p class="team-position">Operations Manager</p>
+                            <p class="team-bio">Lerato oversees all projects with 15+ years experience in construction management and operations.</p>
+                            <p class="team-email">lerato@ubuntubuilds.co.za</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="David van der Merwe" class="team-img">
+                        <div class="team-info">
+                            <h3>David van der Merwe</h3>
+                            <p class="team-position">Project Manager</p>
+                            <p class="team-bio">David ensures every project meets quality standards, deadlines, and budget requirements.</p>
+                            <p class="team-email">david@ubuntubuilds.co.za</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Zanele Dlamini" class="team-img">
+                        <div class="team-info">
+                            <h3>Zanele Dlamini</h3>
+                            <p class="team-position">Chief Electrician</p>
+                            <p class="team-bio">Zanele leads our electrical division with 12+ years experience in commercial and residential electrical systems.</p>
+                            <p class="team-email">zanele@ubuntubuilds.co.za</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Detailed Services Section -->
+    <div id="services-detail" class="hidden">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Services</h1>
+                <nav class="breadcrumb">
+                    <a href="#home">Home</a> &gt; <span>Services</span>
+                </nav>
+            </div>
+        </section>
+
+        <section class="services-detail">
+            <div class="container">
+                <div class="service-category">
+                    <h2 class="category-title">Core Construction Services</h2>
+                    <div class="services-list-detailed">
+                        <div class="service-item-detailed" id="residential">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div>
+                                    <h3>Residential Construction</h3>
+                                    <p>Custom homes built to your exact specifications and vision.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>New home builds</li>
+                                <li>Townhouse developments</li>
+                                <li>Luxury homes</li>
+                                <li>Budget-friendly housing</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Residential Construction">Request Quote</button>
+                        </div>
+
+                        <div class="service-item-detailed" id="commercial">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div>
+                                    <h3>Commercial Construction</h3>
+                                    <p>Office spaces and retail developments designed for business success.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Office buildings</li>
+                                <li>Retail spaces</li>
+                                <li>Shopping centers</li>
+                                <li>Industrial facilities</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Commercial Construction">Request Quote</button>
+                        </div>
+
+                        <div class="service-item-detailed" id="renovations">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div>
+                                    <h3>Renovations & Extensions</h3>
+                                    <p>Transform your existing space with our expert renovation services.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Home additions</li>
+                                <li>Kitchen remodels</li>
+                                <li>Bathroom upgrades</li>
+                                <li>Full property renovations</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Renovations & Extensions">Request Quote</button>
+                        </div>
+
+                        <div class="service-item-detailed">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div>
+                                    <h3>Shop Fitting & Interior Work</h3>
+                                    <p>Professional interior solutions for retail and commercial spaces.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Retail store fitouts</li>
+                                <li>Office interiors</li>
+                                <li>Partition walls</li>
+                                <li>Suspended ceilings</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Shop Fitting & Interior Work">Request Quote</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-category">
+                    <h2 class="category-title">Specialized Services</h2>
+                    <div class="services-list-detailed">
+                        <div class="service-item-detailed" id="electrical">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div>
+                                    <h3>Electrical Services</h3>
+                                    <p>Full electrical solutions for residential and commercial projects.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Full electrical installations</li>
+                                <li>Electrical reticulation</li>
+                                <li>Lighting design</li>
+                                <li>Power backup systems</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Electrical Services">Request Quote</button>
+                        </div>
+
+                        <div class="service-item-detailed" id="project-management">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <div>
+                                    <h3>Project Management</h3>
+                                    <p>Expert oversight from planning to completion.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>End-to-end oversight</li>
+                                <li>Timeline management</li>
+                                <li>Budget control</li>
+                                <li>Quality assurance</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Project Management">Request Quote</button>
+                        </div>
+
+                        <div class="service-item-detailed" id="green-building">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div>
+                                    <h3>Green Building Solutions</h3>
+                                    <p>Sustainable and eco-friendly construction practices.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Solar power installation</li>
+                                <li>Energy-efficient solutions</li>
+                                <li>Sustainable materials</li>
+                                <li>Water conservation systems</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Green Building Solutions">Request Quote</button>
+                        </div>
+
+                        <div class="service-item-detailed">
+                            <div class="service-header-detailed">
+                                <div class="service-icon-detailed">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div>
+                                    <h3>Demolition Services</h3>
+                                    <p>Safe and efficient demolition and site clearance.</p>
+                                </div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Building demolition</li>
+                                <li>Site clearance</li>
+                                <li>Residential demolition</li>
+                                <li>Commercial demolition</li>
+                            </ul>
+                            <button class="btn btn-primary mt-3 request-quote" data-service="Demolition Services">Request Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="hidden">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Portfolio</h1>
+                <nav class="breadcrumb">
+                    <a href="#home">Home</a> &gt; <span>Projects</span>
+                </nav>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="residential">Residential</button>
+                    <button class="filter-btn" data-filter="commercial">Commercial</button>
+                    <button class="filter-btn" data-filter="renovations">Renovations</button>
+                    <button class="filter-btn" data-filter="industrial">Industrial</button>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="hidden">
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <p class="section-subtitle">Let's discuss your next project</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2 class="mb-3">Request a Free Quote</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="fullName" class="form-label">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service" class="form-label">Service Required *</label>
+                                <select id="service" name="service" class="form-control" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Residential Construction">Residential Construction</option>
+                                    <option value="Commercial Construction">Commercial Construction</option>
+                                    <option value="Renovations">Renovations & Extensions</option>
+                                    <option value="Electrical">Electrical Services</option>
+                                    <option value="Project Management">Project Management</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="projectType" class="form-label">Project Type</label>
+                                <select id="projectType" name="projectType" class="form-control">
+                                    <option value="">Select project type</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Industrial">Industrial</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget" class="form-label">Project Budget Range</label>
+                                <select id="budget" name="budget" class="form-control">
+                                    <option value="">Select budget range</option>
+                                    <option value="Under R500k">Under R500,000</option>
+                                    <option value="R500k - R1M">R500,000 - R1,000,000</option>
+                                    <option value="R1M - R5M">R1,000,000 - R5,000,000</option>
+                                    <option value="Over R5M">Over R5,000,000</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message / Project Details *</label>
+                                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Request a Free Quote</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info-card">
+                        <h2 class="mb-3">Contact Information</h2>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Office Address</h3>
+                                <p>123 Construction Avenue<br>Johannesburg, Gauteng 2000<br>South Africa</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Phone Numbers</h3>
+                                <p>Office: +27 11 234 5678<br>Mobile: +27 82 345 6789<br>Emergency: +27 82 123 4567</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email Addresses</h3>
+                                <p>info@ubuntubuilds.co.za<br>projects@ubuntubuilds.co.za<br>quotes@ubuntubuilds.co.za</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 7:30 AM - 5:00 PM<br>Saturday: 8:00 AM - 1:00 PM<br>Sunday: Closed<br>24/7 Emergency Service Available</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="mb-2">Follow Us</h3>
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps -->
+                <div class="map-container">
+                    <div class="text-center">
+                        <i class="fas fa-map-marked-alt fa-3x mb-3"></i>
+                        <h3>Google Maps Integration</h3>
+                        <p>Interactive map would be displayed here with company location marker.</p>
+                        <p class="mt-2"><small>To enable: Add Google Maps API key and embed code</small></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-slider" id="modalSlider">
+                <!-- Slides will be added dynamically -->
+            </div>
+            <div class="modal-info" id="modalInfo">
+                <!-- Project info will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>UBUNTU BUILDS</h3>
+                    <p class="tagline">Building Communities Together</p>
+                    <p class="footer-text">Expert construction services in Johannesburg since 2010. Quality, reliability, and community at the heart of everything we build.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About Us</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services-detail#residential">Residential Construction</a></li>
+                        <li><a href="#services-detail#commercial">Commercial Building</a></li>
+                        <li><a href="#services-detail#renovations">Renovations & Remodeling</a></li>
+                        <li><a href="#services-detail#electrical">Electrical Installation</a></li>
+                        <li><a href="#services-detail">View All Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Construction Ave, Johannesburg, Gauteng 2000</li>
+                        <li><i class="fas fa-phone"></i> +27 11 234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@ubuntubuilds.co.za</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 7:30AM - 5:00PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ubuntu Builds | All Rights Reserved</p>
+                <p class="developer-credit">Developed by Ubuntu Builds Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/27112345678?text=Hi%20Ubuntu%20Builds,%20I'd%20like%20to%20inquire%20about%20your%20services" 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Main JavaScript for Ubuntu Builds Single Page Website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Current page state
+            let currentPage = 'home';
+            const pages = {
+                'home': document.getElementById('home'),
+                'about-detail': document.getElementById('about-detail'),
+                'services-detail': document.getElementById('services-detail'),
+                'projects': document.getElementById('projects'),
+                'contact': document.getElementById('contact')
+            };
+
+            // Navigation Functions
+            function navigateTo(pageId) {
+                // Hide all pages
+                Object.values(pages).forEach(page => {
+                    if (page) page.classList.add('hidden');
+                });
+                
+                // Show selected page
+                if (pages[pageId]) {
+                    pages[pageId].classList.remove('hidden');
+                    currentPage = pageId;
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-menu a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Find corresponding nav link
+                    const navLink = document.querySelector(`.nav-menu a[href="#${pageId === 'home' ? 'home' : pageId}"]`);
+                    if (navLink) navLink.classList.add('active');
+                    
+                    // Scroll to top of page
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            // Mobile Navigation Toggle
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+                });
+            }
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-link, .nav-menu a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (link.classList.contains('nav-link')) {
+                        e.preventDefault();
+                        const targetPage = link.getAttribute('href').replace('#', '');
+                        navigateTo(targetPage || 'home');
+                    }
+                    
+                    if (navMenu.classList.contains('active')) {
+                        navToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Sticky Header
+            const navbar = document.querySelector('.navbar');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollTop = scrollTop;
+                
+                // Back to Top Button
+                const backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    if (scrollTop > 300) {
+                        backToTop.style.display = 'flex';
+                    } else {
+                        backToTop.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Animated Counters
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(animateCounters, 10);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                });
+            };
+            
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.3 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) observer.observe(statsSection);
+
+            // Service cards generation
+            const servicesGrid = document.getElementById('servicesGrid');
+            if (servicesGrid) {
+                const services = [
+                    { icon: 'fas fa-home', title: 'Residential Construction', description: 'Custom homes built to your vision with quality craftsmanship.' },
+                    { icon: 'fas fa-building', title: 'Commercial Building', description: 'Office spaces and retail developments designed for business success.' },
+                    { icon: 'fas fa-tools', title: 'Renovations & Remodeling', description: 'Transform your existing space with our expert renovation services.' },
+                    { icon: 'fas fa-bolt', title: 'Electrical Installation', description: 'Full electrical services and solutions for any project size.' },
+                    { icon: 'fas fa-clipboard-list', title: 'Project Management', description: 'Expert oversight from planning to completion.' },
+                    { icon: 'fas fa-leaf', title: 'Green Building Solutions', description: 'Sustainable and eco-friendly construction practices.' }
+                ];
+                
+                services.forEach(service => {
+                    const serviceCard = document.createElement('div');
+                    serviceCard.className = 'service-card fade-in';
+                    serviceCard.innerHTML = `
+                        <div class="service-icon">
+                            <i class="${service.icon}"></i>
+                        </div>
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                        <a href="#services-detail" class="service-link nav-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    `;
+                    servicesGrid.appendChild(serviceCard);
+                });
+            }
+
+            // Testimonial slider
+            const testimonials = document.querySelectorAll('.testimonial');
+            const testimonialPrev = document.querySelector('.testimonial-prev');
+            const testimonialNext = document.querySelector('.testimonial-next');
+            let currentTestimonial = 0;
+            
+            if (testimonials.length > 0 && testimonialPrev && testimonialNext) {
+                function showTestimonial(index) {
+                    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                    testimonials[index].classList.add('active');
+                    currentTestimonial = index;
+                }
+                
+                testimonialNext.addEventListener('click', () => {
+                    let nextIndex = currentTestimonial + 1;
+                    if (nextIndex >= testimonials.length) nextIndex = 0;
+                    showTestimonial(nextIndex);
+                });
+                
+                testimonialPrev.addEventListener('click', () => {
+                    let prevIndex = currentTestimonial - 1;
+                    if (prevIndex < 0) prevIndex = testimonials.length - 1;
+                    showTestimonial(prevIndex);
+                });
+                
+                setInterval(() => {
+                    let nextIndex = currentTestimonial + 1;
+                    if (nextIndex >= testimonials.length) nextIndex = 0;
+                    showTestimonial(nextIndex);
+                }, 10000);
+            }
+
+            // Hero Slider
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            let currentSlide = 0;
+            let slideInterval;
+            
+            if (slides.length > 0) {
+                function initSlider() {
+                    slides[currentSlide].classList.add('active');
+                    dots[currentSlide].classList.add('active');
+                    startAutoPlay();
+                }
+                
+                function showSlide(n) {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    currentSlide = (n + slides.length) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                    dots[currentSlide].classList.add('active');
+                }
+                
+                function nextSlide() { showSlide(currentSlide + 1); }
+                function prevSlide() { showSlide(currentSlide - 1); }
+                
+                function startAutoPlay() {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                }
+                
+                function stopAutoPlay() { clearInterval(slideInterval); }
+                
+                if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+                if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+                
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => { showSlide(index); startAutoPlay(); });
+                });
+                
+                const slider = document.querySelector('.hero-slider');
+                if (slider) {
+                    slider.addEventListener('mouseenter', stopAutoPlay);
+                    slider.addEventListener('mouseleave', startAutoPlay);
+                }
+                
+                initSlider();
+            }
+
+            // Projects Data and Filtering
+            const projectsGrid = document.getElementById('projectsGrid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            const projects = [
+                { 
+                    id: 1, 
+                    title: 'Sandton Luxury Villa', 
+                    type: 'residential', 
+                    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: 'Modern luxury villa with sustainable features and smart home technology.'
+                },
+                { 
+                    id: 2, 
+                    title: 'Rosebank Office Complex', 
+                    type: 'commercial', 
+                    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: '12-story office building with retail space and underground parking.'
+                },
+                { 
+                    id: 3, 
+                    title: 'Midrand Shopping Center Renovation', 
+                    type: 'renovations', 
+                    image: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: 'Complete renovation of existing shopping center with modern facade.'
+                },
+                { 
+                    id: 4, 
+                    title: 'Fourways Townhouse Development', 
+                    type: 'residential', 
+                    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: 'Development of 24 luxury townhouses with communal facilities.'
+                },
+                { 
+                    id: 5, 
+                    title: 'Centurion Warehouse Facility', 
+                    type: 'industrial', 
+                    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: '50,000 sqft warehouse with office space and loading bays.'
+                },
+                { 
+                    id: 6, 
+                    title: 'Bryanston Home Extension', 
+                    type: 'renovations', 
+                    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: 'Two-story extension to existing family home with new pool area.'
+                },
+                { 
+                    id: 7, 
+                    title: 'Randburg Restaurant Fitout', 
+                    type: 'commercial', 
+                    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: 'Complete interior fitout for upscale restaurant and bar.'
+                },
+                { 
+                    id: 8, 
+                    title: 'Pretoria School Building', 
+                    type: 'commercial', 
+                    image: 'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    description: 'New school building with classrooms, library, and sports facilities.'
+                }
+            ];
+            
+            function renderProjects(filter = 'all') {
+                if (!projectsGrid) return;
+                
+                projectsGrid.innerHTML = '';
+                const filteredProjects = filter === 'all' 
+                    ? projects 
+                    : projects.filter(project => project.type === filter);
+                
+                filteredProjects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card fade-in';
+                    projectCard.setAttribute('data-type', project.type);
+                    projectCard.innerHTML = `
+                        <img src="${project.image}" alt="${project.title}" class="project-img">
+                        <div class="project-content">
+                            <span class="project-badge">${project.type.charAt(0).toUpperCase() + project.type.slice(1)}</span>
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <button class="btn btn-outline view-project" data-id="${project.id}">View Details</button>
+                        </div>
+                    `;
+                    projectsGrid.appendChild(projectCard);
+                });
+                
+                // Add event listeners to view buttons
+                document.querySelectorAll('.view-project').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const projectId = parseInt(this.getAttribute('data-id'));
+                        openProjectModal(projectId);
+                    });
+                });
+            }
+            
+            // Project filtering
+            if (filterBtns.length > 0) {
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // Update active button
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Filter projects
+                        const filter = this.getAttribute('data-filter');
+                        renderProjects(filter);
+                    });
+                });
+            }
+            
+            // Initialize projects
+            if (projectsGrid) renderProjects();
+
+            // Project Modal
+            const projectModal = document.getElementById('projectModal');
+            const modalClose = document.getElementById('modalClose');
+            
+            function openProjectModal(projectId) {
+                const project = projects.find(p => p.id === projectId);
+                if (!project) return;
+                
+                const modalSlider = document.getElementById('modalSlider');
+                const modalInfo = document.getElementById('modalInfo');
+                
+                // Set modal slider images
+                modalSlider.innerHTML = `
+                    <div class="modal-slide active">
+                        <img src="${project.image}" alt="${project.title}">
+                    </div>
+                    <div class="modal-slide">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Construction process">
+                    </div>
+                    <div class="modal-slide">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Completed project">
+                    </div>
+                `;
+                
+                // Set modal info
+                modalInfo.innerHTML = `
+                    <h2>${project.title}</h2>
+                    <p><strong>Project Type:</strong> ${project.type.charAt(0).toUpperCase() + project.type.slice(1)}</p>
+                    <p><strong>Description:</strong> ${project.description}</p>
+                    <p><strong>Duration:</strong> 6 months</p>
+                    <p><strong>Services Used:</strong> Full construction, Electrical, Project Management</p>
+                    <p><strong>Client Testimonial:</strong> "Ubuntu Builds delivered exceptional quality and completed the project ahead of schedule. Highly recommended!"</p>
+                    <button class="btn btn-primary mt-3 request-quote" data-service="${project.title}">Request Similar Project Quote</button>
+                `;
+                
+                // Show modal
+                projectModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Initialize modal slider
+                const modalSlides = modalSlider.querySelectorAll('.modal-slide');
+                let currentModalSlide = 0;
+                
+                function showModalSlide(index) {
+                    modalSlides.forEach(slide => slide.classList.remove('active'));
+                    modalSlides[index].classList.add('active');
+                    currentModalSlide = index;
+                }
+                
+                // Auto-rotate modal slides
+                setInterval(() => {
+                    let nextSlide = currentModalSlide + 1;
+                    if (nextSlide >= modalSlides.length) nextSlide = 0;
+                    showModalSlide(nextSlide);
+                }, 4000);
+            }
+            
+            if (modalClose) {
+                modalClose.addEventListener('click', function() {
+                    projectModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            // Close modal when clicking outside
+            projectModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    projectModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Contact Form Validation
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    let isValid = true;
+                    const requiredFields = contactForm.querySelectorAll('[required]');
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('error');
+                            
+                            if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-message')) {
+                                const errorMsg = document.createElement('div');
+                                errorMsg.className = 'error-message';
+                                errorMsg.textContent = 'This field is required';
+                                field.parentNode.insertBefore(errorMsg, field.nextSibling);
+                            }
+                        } else {
+                            field.classList.remove('error');
+                            
+                            if (field.nextElementSibling && field.nextElementSibling.classList.contains('error-message')) {
+                                field.nextElementSibling.remove();
+                            }
+                            
+                            if (field.type === 'email' && !isValidEmail(field.value)) {
+                                isValid = false;
+                                field.classList.add('error');
+                                
+                                const errorMsg = document.createElement('div');
+                                errorMsg.className = 'error-message';
+                                errorMsg.textContent = 'Please enter a valid email address';
+                                field.parentNode.insertBefore(errorMsg, field.nextSibling);
+                            }
+                        }
+                    });
+                    
+                    if (isValid) {
+                        const successMsg = document.createElement('div');
+                        successMsg.className = 'success-message';
+                        successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent. We\'ll get back to you soon.';
+                        contactForm.appendChild(successMsg);
+                        
+                        setTimeout(() => {
+                            contactForm.reset();
+                            successMsg.remove();
+                        }, 5000);
+                    }
+                });
+            }
+
+            // Request Quote buttons
+            document.querySelectorAll('.request-quote').forEach(button => {
+                button.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    navigateTo('contact');
+                    
+                    // Pre-fill service field in contact form
+                    setTimeout(() => {
+                        const serviceSelect = document.getElementById('service');
+                        if (serviceSelect) {
+                            for (let i = 0; i < serviceSelect.options.length; i++) {
+                                if (serviceSelect.options[i].text === service) {
+                                    serviceSelect.selectedIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }, 100);
+                });
+            });
+
+            // Helper Functions
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeObserver.observe(element);
+            });
+
+            // URL hash navigation
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash.replace('#', '');
+                if (pages[hash]) {
+                    navigateTo(hash);
+                }
+            });
+
+            // Initial page load based on hash
+            const initialHash = window.location.hash.replace('#', '') || 'home';
+            navigateTo(initialHash);
+        });
+    </script>
+</body>
+</html>
