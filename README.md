@@ -39,7 +39,7 @@ Ubuntu Builds is a comprehensive single-page website template designed for const
 ## 🚀 Quick Start
 
 ### Live Demo
-🔗 **[View Live Demo](https://kingdomstack.github.io/-Restaurant-Website-HTML-CSS-JavaScript-Built-With-AI-/)** 🔗
+🔗 **[View Live Demo](https://kingdomstack.github.io/Ubuntu-Builds---Single-File-Construction-Website/)** 🔗
 
 ### Installation
 1. **Clone or Download**
